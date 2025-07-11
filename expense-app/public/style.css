@@ -1,0 +1,136 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 1em;
+}
+
+.form-container {
+    display: flex;
+    gap: 2em;
+}
+
+.form-main {
+    flex: 2;
+}
+
+.ai-diagnosis {
+    flex: 1;
+    border-left: 1px solid #e0e0e0;
+    padding-left: 2em;
+}
+
+.form-group {
+    margin-bottom: 1.5em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input.error {
+    border-color: red !important;
+}
+
+.amount-wrapper {
+    display: flex;
+    align-items: center;
+}
+.amount-wrapper input {
+    width: calc(100% - 30px);
+}
+.amount-wrapper span {
+    margin-left: 10px;
+}
+
+.receipt-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#upload-btn {
+    padding: 10px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 1px dashed #ccc;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+#receipt-preview {
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid #eee;
+    display: none; /* 初期状態は非表示 */
+}
+
+#check-btn {
+    width: 100%;
+    padding: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#check-btn:hover {
+    background-color: #0056b3;
+}
+
+.message-field {
+    width: 100%;
+    min-height: 200px;
+    padding: 1em;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    white-space: pre-wrap; /* 改行を反映 */
+    word-wrap: break-word;
+    box-sizing: border-box;
+    transition: color 0.3s;
+}
+
+.message-success {
+    color: #0056b3;
+}
+
+.message-error {
+    color: #d93025;
+    font-weight: bold;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI経費申請テスト</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>【AIテスト】経費申請</h1>
+        <div class="form-container">
+            <div class="form-main">
+                <form id="expense-form">
+                    <div class="form-group">
+                        <label for="applicant">申請者</label>
+                        <input type="text" id="applicant" name="applicant">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">申請タイトル</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+                    <div class="form-group receipt-group">
+                        <label for="receipt-upload">領収書</label>
+                        <input type="file" id="receipt-upload" name="receiptImage" accept="image/*" style="display: none;">
+                        <button type="button" id="upload-btn">+</button>
+                        <img id="receipt-preview" src="" alt="領収書プレビュー">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">金額</label>
+                        <div class="amount-wrapper">
+                            <input type="number" id="amount" name="amount">
+                            <span>円</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="check-btn">チェック</button>
+                    </div>
+                </form>
+            </div>
+            <div class="ai-diagnosis">
+                <h2>AI診断</h2>
+                <div id="ai-message-field" class="message-field"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
