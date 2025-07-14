@@ -1,78 +1,84 @@
+/* 基本的なスタイル */
 body {
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: #f4f7f9;
-    color: #333;
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* 上揃えに変更 */
     min-height: 100vh;
-    margin: 0;
 }
 
 .container {
-    width: 90%;
-    max-width: 800px;
-    background: #fff;
-    padding: 2em;
+    background-color: #ffffff;
+    padding: 30px 40px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px; /* 最大幅を少し広げる */
 }
 
 h1 {
     text-align: center;
-    color: #4a4a4a;
-    margin-bottom: 1em;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .form-container {
     display: flex;
-    gap: 2em;
+    gap: 40px;
+    flex-wrap: wrap; /* 画面が狭いときに折り返すように設定 */
 }
 
+
+/* ▼▼▼ この部分を修正 ▼▼▼ */
 .form-main {
-    flex: 2;
+    flex: 1; /* 左側のフォームエリア */
+    min-width: 400px; /* 最小幅を設定してレイアウト崩れを防ぐ */
 }
 
 .ai-diagnosis {
-    flex: 1;
+    flex: 1.5; /* 右側の診断エリアの比率を大きくする */
+    min-width: 400px; /* 最小幅を設定 */
     border-left: 1px solid #e0e0e0;
-    padding-left: 2em;
+    padding-left: 40px;
 }
+/* ▲▲▲ この部分を修正 ▲▲▲ */
+
 
 .form-group {
-    margin-bottom: 1.5em;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5em;
+    margin-bottom: 8px;
     font-weight: bold;
     color: #555;
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="text"]#amount {
     width: 100%;
-    padding: 0.8em;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    transition: border-color 0.3s;
-}
-
-input.error {
-    border-color: red !important;
 }
 
 .amount-wrapper {
     display: flex;
     align-items: center;
 }
-.amount-wrapper input {
-    width: calc(100% - 30px);
-}
+
 .amount-wrapper span {
-    margin-left: 10px;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+#amount {
+    text-align: right;
 }
 
 .receipt-group {
@@ -81,56 +87,113 @@ input.error {
     gap: 10px;
 }
 
+.receipt-group label {
+    margin-bottom: 0;
+}
+
 #upload-btn {
-    padding: 10px 15px;
-    font-size: 1.2em;
-    cursor: pointer;
-    border: 1px dashed #ccc;
+    width: 40px;
+    height: 40px;
+    border: 2px dashed #ccc;
     background-color: #f9f9f9;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
     border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #receipt-preview {
-    max-width: 100px;
-    max-height: 100px;
-    border: 1px solid #eee;
-    display: none; /* 初期状態は非表示 */
+    max-height: 40px;
+    border-radius: 4px;
+    display: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-#check-btn {
+#receipt-preview:hover {
+    transform: scale(1.1);
+}
+
+button#check-btn {
     width: 100%;
-    padding: 1em;
+    padding: 12px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 1em;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
 }
 
-#check-btn:hover {
+button#check-btn:hover {
     background-color: #0056b3;
 }
 
+button#check-btn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
 .message-field {
-    width: 100%;
-    min-height: 200px;
-    padding: 1em;
     background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
     border-radius: 4px;
-    border: 1px solid #ddd;
-    white-space: pre-wrap; /* 改行を反映 */
+    padding: 15px;
+    min-height: 200px;
+    white-space: pre-wrap;
     word-wrap: break-word;
-    box-sizing: border-box;
-    transition: color 0.3s;
 }
 
-.message-success {
-    color: #0056b3;
+/* 画像モーダル用のスタイル */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
 }
 
-.message-error {
-    color: #d93025;
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
     font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+/* エラーフィールド用のスタイル */
+.input-error {
+    background-color: #ffebee !important;
+    border-color: #f44336 !important;
+}
+
+#upload-btn.input-error {
+    border-color: #f44336 !important;
+    background-color: #ffebee !important;
 }

@@ -14,11 +14,11 @@
                 <form id="expense-form">
                     <div class="form-group">
                         <label for="applicant">申請者</label>
-                        <input type="text" id="applicant" name="applicant">
+                        <input type="text" id="applicant" name="applicant" value="テスト">
                     </div>
                     <div class="form-group">
                         <label for="title">申請タイトル</label>
-                        <input type="text" id="title" name="title">
+                        <input type="text" id="title" name="title" value="テスト申請">
                     </div>
                     <div class="form-group receipt-group">
                         <label for="receipt-upload">領収書</label>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="amount">金額</label>
                         <div class="amount-wrapper">
-                            <input type="number" id="amount" name="amount">
+                            <input type="text" id="amount" name="amount" inputmode="numeric" autocomplete="off">
                             <span>円</span>
                         </div>
                     </div>
@@ -44,6 +44,15 @@
             </div>
         </div>
     </div>
+
+    <!-- ★★★ ここから追加 ★★★ -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close-btn">×</span>
+        <img class="modal-content" id="modal-image">
+        <div class="modal-caption"></div>
+    </div>
+    <!-- ★★★ ここまで追加 ★★★ -->
+
     <script src="script.js"></script>
 </body>
 </html>
