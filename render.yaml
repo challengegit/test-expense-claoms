@@ -1,0 +1,29 @@
+# render.yaml
+# Render Blueprint
+
+services:
+  # Web Serviceの設定
+  - type: web
+    # サービスの名前（URLの一部になります。自由に変更可能）
+    name: test-expense-app
+    # 実行環境
+    env: node
+    # サーバーを設置するリージョン（例: oregon, singaporeなど）
+    region: oregon
+    # デプロイするブランチ
+    branch: main
+    # 【重要】プロジェクトのルートディレクトリを指定
+    rootDir: ./expense-app
+    # ビルドコマンド
+    buildCommand: "npm install"
+    # サーバーの起動コマンド
+    startCommand: "npm start"
+    # インスタンスタイプ（無料プラン）
+    plan: free
+    # 環境変数の設定
+    envVars:
+      # GEMINI_API_KEYという名前の環境変数を定義します。
+      # 値はRenderのダッシュボードから安全に設定します。
+      - key: GEMINI_API_KEY
+        sync: false # sync: false にすると、GitHubにキーが保存されず安全です
+        
