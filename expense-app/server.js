@@ -14,7 +14,7 @@ if (!process.env.GEMINI_API_KEY) {
 
 // 3. Google AIの初期化
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 // 4. ミドルウェアの設定
 app.use(express.json());
